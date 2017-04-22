@@ -117,7 +117,7 @@ export async function executeLifecycleScript(
   const pathParts = (env[constants.ENV_PATH_KEY] || '').split(path.delimiter);
 
   // add node-gyp
-  pathParts.unshift(path.join(__dirname, '..', '..', 'bin', 'node-gyp-bin'));
+  pathParts.unshift(path.join(path.dirname(process.argv[1]), 'node-gyp-bin'));
 
   // add .bin folders to PATH
   for (const registry of Object.keys(registries)) {
